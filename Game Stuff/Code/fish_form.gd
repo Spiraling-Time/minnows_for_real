@@ -99,6 +99,7 @@ func _physics_process(delta: float) -> void:
 					if await approach_target(fishs, target_pos, fishs.DISTANCE) == false:
 						fishs.approaching = false
 					left_or_right(fishs, fishs.target.position, true)
+
 func get_target():
 	$"../target".global_position = get_global_mouse_position()#Vector2(randi_range(-1200,1200),randi_range(-1200,1200))
 	
@@ -127,6 +128,34 @@ func initialize_shape(anchor):
 	anchor.shape = new_shape
 	for children in anchor.shape.get_children():
 		anchor.shape.points.append([null])
+	var count = 3
+	var OG_Shape = [anchor.shape.get_node("point0"),anchor.shape.get_node("point1"),anchor.shape.get_node("point2")]
+	
+	while anchor.shape.get_children().size()<fish_chain.size():
+		var new_node2D = Node2D.new()
+		new_node2D.name = "point"+str(count)
+		new_node2D.position = anchor.shape.position + Vector2(randi_range(100,-100),randi_range(100,-100))
+		var lowest_y = anchor.shape.get_node("point0")
+		var lowest_x = anchor.shape.get_node("point0")
+		for children in OG_Shape:
+			if children.position.y < lowest_y.position.y:
+				lowest_y = children
+			elif children.position.y == lowest_y.position.y and children.position.x < lowest_x.position.x:
+				lowest_x = children
+				lowest_y = children
+		var point = lowest_y.position
+#Step 1: Find the point with the lowest y-coordinate. If there's two points with same y-coordinate, choose the one with the lowest x-coordinate. This is the pivot point.
+#Step 2: Sort all other points based on the polar angle they make with the pivot point.
+#Step 3: If two points have the same angle, discard the one that is closer to the pivot.
+#Step 4: Push the pivot and the next two sorted points onto a stack.
+#Step 5: For each remaining point in the sorted list, check the orientation formed by the top two points on the stack and the current point.
+#Step 6: If the orientation is not a left turn, pop the top point from the stack.
+#Step 7: Repeat the orientation check until a left turn is found, then push the current point onto the stack.
+#Step 8: After processing all points, the stack contains the vertices of the convex hull in counter-clockwise order.
+		
+		anchor.shape.add_child(new_node2D)
+		anchor.shape.points.append([null])
+		count += 1
 	assign_shape(anchor)
 func assign_shape(anchor):
 	var start = fish_chain.find(anchor)
