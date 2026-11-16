@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dfbie2vjiep4y"]
+
+[ext_resource type="Script" uid="uid://dihg75dekeuu6" path="res://Game Stuff/Code/fish.gd" id="1_axsu5"]
+[ext_resource type="Texture2D" uid="uid://dihpf8wrvyop5" path="res://Game Stuff/Assets/fish.png" id="1_t238e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t238e"]
+radius = 7.0
+height = 32.0
+
+[node name="Fish" type="CharacterBody2D" unique_id=126653619]
+script = ExtResource("1_axsu5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=678708980]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_t238e")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=2113005495]
+scale = Vector2(0.3, 0.3)
+
+[node name="body" type="Sprite2D" parent="sprite" unique_id=162929476]
+texture = ExtResource("1_t238e")
+vframes = 6
+
+[node name="eyelid" type="Sprite2D" parent="sprite" unique_id=66094701]
+position = Vector2(34, -4)
+texture = ExtResource("1_t238e")
+vframes = 6
+frame = 1
+
+[node name="eye" type="Sprite2D" parent="sprite" unique_id=552413233]
+position = Vector2(34, -4)
+texture = ExtResource("1_t238e")
+vframes = 6
+frame = 2
+
+[node name="top_fin" type="Sprite2D" parent="sprite" unique_id=1594059288]
+position = Vector2(5, -31)
+texture = ExtResource("1_t238e")
+vframes = 6
+frame = 3
+
+[node name="bottom_fin1" type="Sprite2D" parent="sprite" unique_id=2099287208]
+position = Vector2(4, 27)
+texture = ExtResource("1_t238e")
+vframes = 6
+frame = 4
+
+[node name="bottom_fin2" type="Sprite2D" parent="sprite" unique_id=2076065608]
+position = Vector2(-2, 23)
+texture = ExtResource("1_t238e")
+vframes = 6
+frame = 4
+
+[node name="tail" type="Sprite2D" parent="sprite" unique_id=1247406944]
+position = Vector2(-58, 0)
+texture = ExtResource("1_t238e")
+vframes = 6
+frame = 5
+
+[node name="Label" type="Label" parent="." unique_id=1088716677]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://df5odx2cksckf"]
+
+[ext_resource type="Script" uid="uid://dwt0me0tsfeor" path="res://Game Stuff/Code/fish_form.gd" id="1_qsweg"]
+
+[node name="fish_form" type="Node2D" unique_id=1079608545]
+z_index = 1000
+script = ExtResource("1_qsweg")
+
+[node name="Timer1" type="Timer" parent="." unique_id=429903244]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1114043209]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer4" type="Timer" parent="." unique_id=982881786]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]

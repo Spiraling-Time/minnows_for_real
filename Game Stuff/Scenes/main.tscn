@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dgg8wgr5af1ry"]
+
+[ext_resource type="PackedScene" uid="uid://df5odx2cksckf" path="res://Game Stuff/Scenes/fish_form.tscn" id="1_pkegd"]
+[ext_resource type="Texture2D" uid="uid://c13ij1hrxufjx" path="res://Game Stuff/Assets/icon.svg" id="2_k5pwb"]
+
+[node name="Main" type="Node2D" unique_id=994106526]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=753202879]
+
+[node name="fish_form" parent="." unique_id=1079608545 instance=ExtResource("1_pkegd")]
+
+[node name="target" type="Node2D" parent="." unique_id=1913978073]
+
+[node name="Sprite2D" type="Sprite2D" parent="target" unique_id=1909603426]
+visible = false
+texture = ExtResource("2_k5pwb")

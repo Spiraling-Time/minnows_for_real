@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dxoolhu6ybcjx"]
+
+[ext_resource type="Script" uid="uid://dugfql3ax757c" path="res://Game Stuff/Scenes/triangle.gd" id="1_anq0d"]
+[ext_resource type="Texture2D" uid="uid://c13ij1hrxufjx" path="res://Game Stuff/Assets/icon.svg" id="2_nukp5"]
+
+[node name="Triangle" type="Node2D" unique_id=1499027578]
+z_index = -100
+script = ExtResource("1_anq0d")
+
+[node name="point0" type="Node2D" parent="." unique_id=287756257]
+position = Vector2(200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="point0" unique_id=1169003647]
+visible = false
+texture = ExtResource("2_nukp5")
+
+[node name="point1" type="Node2D" parent="." unique_id=1668318801]
+position = Vector2(-200, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="point1" unique_id=1480813419]
+visible = false
+texture = ExtResource("2_nukp5")
+
+[node name="point2" type="Node2D" parent="." unique_id=826076085]
+position = Vector2(-200, -200)
+
+[node name="Sprite2D" type="Sprite2D" parent="point2" unique_id=147184155]
+visible = false
+texture = ExtResource("2_nukp5")
